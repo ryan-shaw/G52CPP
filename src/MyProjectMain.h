@@ -2,8 +2,6 @@
 #define MYPROJECTMAIN_H
 
 #include "BaseEngine.h"
-#include "TileManager.h"
-#include "DisplayableObject.h"
 
 class MyProjectMain : public BaseEngine
 {

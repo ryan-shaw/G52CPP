@@ -96,6 +96,8 @@
     <ClInclude Include="MovementPosition.h" />
     <ClInclude Include="templates.h" />
     <ClInclude Include="TileManager.h" />
+    <ClInclude Include="BouncingBall.h" />
+    <ClInclude Include="BouncingBallMain.h" />
     <ClInclude Include="Demo2aMain.h" />
     <ClInclude Include="Demo2Main.h" />
     <ClInclude Include="Demo2Object.h" />
@@ -104,9 +106,10 @@
     <ClInclude Include="Demo3Object.h" />
     <ClInclude Include="Demo3ObjectFinished.h" />
     <ClInclude Include="Demo3TileManager.h" />
-    <ClInclude Include="MyMain.h" />
-    <ClInclude Include="MyBall.h" />
+    <ClInclude Include="Demo4Main.h" />
+    <ClInclude Include="Demo4Object.h" />
     <ClInclude Include="Demo4TileManager.h" />
+    <ClInclude Include="MyProjectMain.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainfunction.cpp" />
@@ -114,7 +117,10 @@
     <ClCompile Include="DisplayableObject.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="JPGImage.cpp" />
+    <ClCompile Include="MyProjectMain.cpp" />
     <ClCompile Include="TileManager.cpp" />
+    <ClCompile Include="BouncingBall.cpp" />
+    <ClCompile Include="BouncingBallMain.cpp" />
     <ClCompile Include="Demo2aMain.cpp" />
     <ClCompile Include="Demo2Main.cpp" />
     <ClCompile Include="Demo2Object.cpp" />
@@ -123,8 +129,8 @@
     <ClCompile Include="Demo3Object.cpp" />
     <ClCompile Include="Demo3ObjectFinished.cpp" />
     <ClCompile Include="Demo3TileManager.cpp" />
-    <ClCompile Include="MyMain.cpp" />
-    <ClCompile Include="MyBall.cpp" />
+    <ClCompile Include="Demo4Main.cpp" />
+    <ClCompile Include="Demo4Object.cpp" />
     <ClCompile Include="Demo4TileManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
