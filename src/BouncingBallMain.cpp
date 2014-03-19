@@ -60,7 +60,7 @@ int BouncingBallMain::InitialiseObjects()
 		-10/*XLabelOffset*/,
 		-15/*YLabelOffset*/ );
 	m_pBall2->SetPosition( 100,100 );
-	m_pBall2->SetSpeed( 0.01, 0.01 );
+	m_pBall2->SetSpeed( 0.1, 0.1);
 
 	// And a third ball
 	m_pBall3 = new BouncingBall2( this, 

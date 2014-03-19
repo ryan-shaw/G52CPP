@@ -158,35 +158,17 @@ void BouncingBall2::DoUpdate( int iCurrentTime )
 
 		// If you need to cast to the sub-class type, you must use dynamic_cast, see lecture 19
 		// We are just using base class parts
-		int iXDiff = pObject->GetXCentre() - m_iCurrentScreenX;
+		int iXDiff = pObject->GetXCentre() - (o->m_iDrawWidth/2) - m_iCurrentScreenX;
+
 		int iYDiff = pObject->GetYCentre() - o->m_iDrawHeight*2 - m_iCurrentScreenY;
 		
-		int oXBound1 = o->GetXCentre() - o->m_iDrawWidth/2;
-		int oXBound2 = o->GetXCentre() + o->m_iDrawWidth/2;
-
-		int oYBound1 = o->GetYCentre() - o->m_iDrawHeight/2;
-		int oYBound2 = o->GetYCentre() + o->m_iDrawHeight/2;
-
-		if(iYDiff == 0)
+		if(iYDiff == 0 && iXDiff <= 10 && iXDiff >= -80)
 			m_dSY = -m_dSY;
 
-		printf("DiffX: %d, DiffY: %d\n", iXDiff, iYDiff);
+		//printf("DiffX: %d, DiffY: %d\n", iXDiff, iYDiff);
 
-		// Estimate the size - by re-calculating it
-		int iTick = iCurrentTime/20; // 1 per 20ms
-		int iFrame = iTick % 30;
-		int iSize = 10 + iFrame;
-		if ( iFrame > 15 )
-			iSize = 10 + (30-iFrame);
-		int iSizeOther = iSize; // Assume both the same size
 
-		// Pythagorus' theorum:
-		if ( ((iXDiff*iXDiff)+(iYDiff*iYDiff)) 
-				< ((iSizeOther+iSize)*(iSizeOther+iSize)) )
-		{
-		
-			RedrawObjects();
-		}
+		RedrawObjects();
 	}
 
 	m_dX += m_dSX;
