@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
 	int iResult;
 
 	// Needs just one of the two following lines:
-	//BouncingBallMain oMain;
-	MyProjectMain oMain;
+	BouncingBallMain oMain;
+	//MyProjectMain oMain;
 	//Demo2Main oMain;
 	//Demo2aMain oMain;
 	//Demo3Main oMain;

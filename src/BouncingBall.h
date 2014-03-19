@@ -48,30 +48,6 @@ private:
 
 class TileManager;
 
-class BouncingBall1 :
-	public BouncingBall
-{
-public:
-	BouncingBall1(BouncingBallMain* pEngine, int iID, 
-		int iDrawType, int iSize, int iColour,
-		char* szLabel, int iXLabelOffset, int iYLabelOffset,
-		TileManager* pTileManager );
-
-	void SetMovement( int iStartTime, int iEndTime, int iCurrentTime,
-				int iStartX, int iStartY, int iEndX, int iEndY );
-
-	void DoUpdate( int iCurrentTime );
-
-protected:
-	/** Movement position calculator - give it start and end position and times 
-	and it works out current position for the current time. 
-	Notice also the MyMovementPosition class. */
-	MovementPosition m_oMovement;
-
-	// Pointer to the tile manager - we are going to use this!
-	TileManager* m_pTileManager;
-};
-
 class BouncingBall2 :
 	public BouncingBall
 {

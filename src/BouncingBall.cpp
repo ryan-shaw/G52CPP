@@ -2,7 +2,7 @@
 
 #include "BouncingBall.h"
 #include "BouncingBallMain.h"
-
+#include "PlayerWall.h"
 
 
 /** Constructor */
@@ -86,7 +86,7 @@ void BouncingBall::Draw()
 	if ( (m_szLabel!=NULL) && (strlen(m_szLabel)>0) )
 	{
 		//GetEngine()->DrawString( iCentreX+m_iXLabelOffset+1, iCentreY+m_iYLabelOffset+1, m_szLabel, 0xffffff );
-		GetEngine()->DrawScreenString( iCentreX+m_iXLabelOffset, iCentreY+m_iYLabelOffset, m_szLabel, uiColourText );
+		//GetEngine()->DrawScreenString( iCentreX+m_iXLabelOffset, iCentreY+m_iYLabelOffset, m_szLabel, uiColourText );
 	}
 
 	// Store the position at which the object was last drawn
@@ -103,62 +103,6 @@ void BouncingBall::DoUpdate( int iCurrentTime )
 	// Ensure that the object gets redrawn on the display, if something changed
 	RedrawObjects();
 }
-
-
-
-
-/** Constructor */
-BouncingBall1::BouncingBall1( BouncingBallMain* pEngine, int iID, 
-							int iDrawType, int iSize, int iColour,
-							char* szLabel, 
-							int iXLabelOffset, int iYLabelOffset,
-							TileManager* pTileManager)
-: BouncingBall( pEngine, iID, iDrawType, iSize, iColour, szLabel, iXLabelOffset, iYLabelOffset )
-, m_pTileManager(pTileManager)
-{
-}
-
-// Allows a caller to specify where the object will move from and to and when
-void BouncingBall1::SetMovement( int iStartTime, int iEndTime, int iCurrentTime,
-							   int iStartX, int iStartY, int iEndX, int iEndY )
-{
-	m_oMovement.Setup( iStartX, iStartY, iEndX, iEndY, iStartTime, iEndTime );
-	m_oMovement.Calculate( iCurrentTime );
-	m_iCurrentScreenX = m_oMovement.GetX();
-	m_iCurrentScreenY = m_oMovement.GetY();
-}
-
-/**
-Handle the update action, moving the object and/or handling any game logic
-*/
-void BouncingBall1::DoUpdate( int iCurrentTime )
-{
-	// Work out current position
-	m_oMovement.Calculate(iCurrentTime);
-	m_iCurrentScreenX = m_oMovement.GetX();
-	m_iCurrentScreenY = m_oMovement.GetY();
-
-	// If movement has finished then request instructions
-	if ( m_oMovement.HasMovementFinished( iCurrentTime ) )
-	{
-		m_oMovement.Reverse();
-		m_oMovement.Calculate(iCurrentTime);
-		m_iCurrentScreenX = m_oMovement.GetX();
-		m_iCurrentScreenY = m_oMovement.GetY();
-	}
-
-	if ( m_pTileManager->IsValidTilePosition( m_iCurrentScreenX, m_iCurrentScreenY ) )
-	{
-		int iTileX = m_pTileManager->GetTileXForPositionOnScreen(m_iCurrentScreenX);
-		int iTileY = m_pTileManager->GetTileYForPositionOnScreen(m_iCurrentScreenY);
-		int iCurrentTile = m_pTileManager->GetValue( iTileX, iTileY );
-		m_pTileManager->UpdateTile( GetEngine(), iTileX, iTileY, iCurrentTile+1 );
-	}
-
-	// Ensure that the object gets redrawn on the display, if something changed
-	RedrawObjects();
-}
-
 
 /** Constructor */
 BouncingBall2::BouncingBall2( BouncingBallMain* pEngine, int iID, 
@@ -190,7 +134,7 @@ Handle the update action, moving the object and/or handling any game logic
 */
 void BouncingBall2::DoUpdate( int iCurrentTime )
 {
-	if ( GetEngine()->IsKeyPressed( SDLK_UP ) )
+	/*if ( GetEngine()->IsKeyPressed( SDLK_UP ) )
 		m_dSY -= 0.01;
 	if ( GetEngine()->IsKeyPressed( SDLK_DOWN ) )
 		m_dSY += 0.01;
@@ -200,6 +144,50 @@ void BouncingBall2::DoUpdate( int iCurrentTime )
 		m_dSX += 0.01;
 	if ( GetEngine()->IsKeyPressed( SDLK_SPACE ) )
 		m_dSX = m_dSY = 0;
+		*/
+
+	DisplayableObject* pObject;
+	for ( int iObjectId = 0 ; 
+		 (pObject = GetEngine()->GetDisplayableObject( iObjectId )
+				) != NULL ;
+		iObjectId++ )
+	{
+		if ( pObject == this ) // This is us, skip it
+			continue;
+		PlayerWall* o = (PlayerWall*) pObject;
+
+		// If you need to cast to the sub-class type, you must use dynamic_cast, see lecture 19
+		// We are just using base class parts
+		int iXDiff = pObject->GetXCentre() - m_iCurrentScreenX;
+		int iYDiff = pObject->GetYCentre() - o->m_iDrawHeight*2 - m_iCurrentScreenY;
+		
+		int oXBound1 = o->GetXCentre() - o->m_iDrawWidth/2;
+		int oXBound2 = o->GetXCentre() + o->m_iDrawWidth/2;
+
+		int oYBound1 = o->GetYCentre() - o->m_iDrawHeight/2;
+		int oYBound2 = o->GetYCentre() + o->m_iDrawHeight/2;
+
+		if(iYDiff == 0)
+			m_dSY = -m_dSY;
+
+		printf("DiffX: %d, DiffY: %d\n", iXDiff, iYDiff);
+
+		// Estimate the size - by re-calculating it
+		int iTick = iCurrentTime/20; // 1 per 20ms
+		int iFrame = iTick % 30;
+		int iSize = 10 + iFrame;
+		if ( iFrame > 15 )
+			iSize = 10 + (30-iFrame);
+		int iSizeOther = iSize; // Assume both the same size
+
+		// Pythagorus' theorum:
+		if ( ((iXDiff*iXDiff)+(iYDiff*iYDiff)) 
+				< ((iSizeOther+iSize)*(iSizeOther+iSize)) )
+		{
+		
+			RedrawObjects();
+		}
+	}
 
 	m_dX += m_dSX;
 	m_dY += m_dSY;
