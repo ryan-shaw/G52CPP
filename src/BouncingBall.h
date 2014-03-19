@@ -4,9 +4,7 @@
 #include "DisplayableObject.h"
 #include "MovementPosition.h"
 
-#include "BouncingBallMain.h"
-
-class BaseEngine;
+class BouncingBallMain;
 
 class BouncingBall :
 	public DisplayableObject
@@ -21,7 +19,8 @@ public:
 	void Draw();
 
 	void DoUpdate( int iCurrentTime );
-
+	int height;
+	int width;
 private:
 	/** Pointer to the main engine object */
 	BouncingBallMain* m_pEngine;
@@ -86,6 +85,9 @@ public:
 
 	void DoUpdate( int iCurrentTime );
 
+private:
+	BouncingBallMain* m_pEngine;
+	bool checkCollision(float, float, float, float, float, float, float, float);
 protected:
 	double m_dX;
 	double m_dY;

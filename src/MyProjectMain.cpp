@@ -12,8 +12,10 @@
 
 #include "DisplayableObject.h"
 
+#include <math.h>
+
 // This draws and moves the simple rectangle on the screen
-class SimpleShape : public DisplayableObject
+class Ball : public DisplayableObject
 {
 private:
 	double m_dSX;
@@ -23,7 +25,7 @@ private:
 
 public:
 	// Constructor has to set up all of the position and size members
-	SimpleShape(MyProjectMain* pEngine )
+	Ball(MyProjectMain* pEngine )
 		: DisplayableObject( pEngine )
 	{
 		// The ball coordinate will be the centre of the ball
@@ -31,8 +33,8 @@ public:
 		m_iStartDrawPosX = -50;
 		m_iStartDrawPosY = -25;
 		// Record the ball size as both height and width
-		m_iDrawWidth = 100;
-		m_iDrawHeight = 50;
+		m_iDrawWidth = 20;
+		m_iDrawHeight = 20;
 		// Just put it somewhere initially
 		m_dX = m_iPreviousScreenX = m_iCurrentScreenX = m_iDrawWidth;
 		m_dY = m_iPreviousScreenY = m_iCurrentScreenY = m_iDrawHeight;
@@ -46,16 +48,17 @@ public:
 	// Draw the shape - just draws a rectangle
 	void Draw()
 	{
-		GetEngine()->DrawScreenRectangle( 
-			m_iCurrentScreenX - m_iDrawWidth/2 + 1,
-			m_iCurrentScreenY - m_iDrawHeight/2 + 1,
-			m_iCurrentScreenX + m_iDrawWidth/2 -1,
-			m_iCurrentScreenY + m_iDrawHeight/2 -1,
-			0xffff00 );
-
-		// This will store the position at which the object was drawn
-		// so that the background can be drawn over the top.
-		// This will then remove the object from the screen.
+		unsigned int uiColourMult = 0xffffff;
+		int iRadiusSquared = (m_iDrawWidth/2) * (m_iDrawWidth/2);
+		int iCentreX = m_iCurrentScreenX + m_iStartDrawPosX + m_iDrawWidth/2;
+		int iCentreY = m_iCurrentScreenY + m_iStartDrawPosY + m_iDrawHeight/2;
+		for ( int iX = m_iCurrentScreenX + m_iStartDrawPosX ; iX < (m_iCurrentScreenX + m_iStartDrawPosX + m_iDrawWidth) ; iX++ )
+			for ( int iY = m_iCurrentScreenY + m_iStartDrawPosY ; iY < (m_iCurrentScreenY + m_iStartDrawPosY + m_iDrawHeight) ; iY++ )
+				if ( ( (iX-iCentreX)*(iX-iCentreX) + (iY-iCentreY)*(iY-iCentreY) ) <= iRadiusSquared )
+				{
+					// 0xB0 is the range of values, 0xff is the brightest value.
+					GetEngine()->SafeSetScreenPixel( iX, iY, 0xffffff );
+				}
 		StoreLastScreenPositionAndUpdateRect();
 	}
 
@@ -128,14 +131,10 @@ void MyProjectMain::SetupBackgroundBuffer()
 
 	for ( int iX = 0 ; iX < GetScreenWidth() ; iX++ )
 		for ( int iY = 0 ; iY < this->GetScreenHeight() ; iY++ )
-			switch( rand()%100 )
+
+			switch( rand()%250 )
 			{
-			case 0: SetBackgroundPixel( iX, iY, 0xFF0000 ); break;
-			case 1: SetBackgroundPixel( iX, iY, 0x00FF00 ); break;
-			case 2: SetBackgroundPixel( iX, iY, 0x0000FF ); break;
-			case 3: SetBackgroundPixel( iX, iY, 0xFFFF00 ); break;
-			case 4: SetBackgroundPixel( iX, iY, 0x00FFFF ); break;
-			case 5: SetBackgroundPixel( iX, iY, 0xFF00FF ); break;
+				case 0: SetBackgroundPixel( iX, iY, 0xFFFFFF ); break;
 			}
 }
 
@@ -157,15 +156,12 @@ int MyProjectMain::InitialiseObjects()
 
 	// You MUST set the array entry after the last one that you create to NULL, so that the system knows when to stop.
 	// i.e. The LAST entry has to be NULL. The fact that it is NULL is used in order to work out where the end of the array is.
-	m_ppDisplayableObjects[0] = new SimpleShape(this);
+	m_ppDisplayableObjects[0] = new Ball(this);
+
 	m_ppDisplayableObjects[1] = NULL;
 
 	return 0;
 }
-
-
-
-
 
 
 
@@ -204,8 +200,8 @@ void MyProjectMain::GameAction()
 void MyProjectMain::MouseDown( int iButton, int iX, int iY )
 {
 	// Redraw the background
-	SetupBackgroundBuffer();
-	Redraw(true); // Force total redraw
+	// SetupBackgroundBuffer();
+	// Redraw(true); // Force total redraw
 }
 
 /*

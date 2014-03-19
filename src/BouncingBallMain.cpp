@@ -76,28 +76,28 @@ void BouncingBallMain::SetupBackgroundBuffer()
 	DrawBackgroundLine( 410, 180, 350, 100, 0xffffff );
 
 	// Draw an image loaded from a file.
-	ImageData im, im2;
-	im2.LoadImage( "demo.png" );
-	im.ShrinkFrom( &im2, 2 );
+	//ImageData im, im2;
+	//im2.LoadImage( "demo.png" );
+	//im.ShrinkFrom( &im2, 2 );
 
 	// Note: image loaded only once, above, and now we will draw it nine times
-	for ( int i = 0 ; i < 3 ; i++ )
+	/*for ( int i = 0 ; i < 3 ; i++ )
 		for ( int j = 0 ; j < 3 ; j++ )
 			im.RenderImageWithMask( this->GetBackground(), 
 					0, 0, 
 					i*100, j*100 + 300, 
 					im.GetWidth(), im.GetHeight() );
-
+					*/
 
 	// Draw some tiles using the tile manager
 
 	// Specify how many tiles wide and high
-	m.SetSize( 10, 10 ); 
+	//m.SetSize( 10, 10 ); 
 	// Specify the screen x,y of top left corner
-	m.SetBaseTilesPositionOnScreen( 450, 300 );
+	//m.SetBaseTilesPositionOnScreen( 450, 300 );
 	// Tell it to draw tiles from x1,y1 to x2,y2 in tile array,
 	// to the background of this screen
-	m.DrawAllTiles( this, this->GetBackground(), 0, 0, 9, 9 );
+	//m.DrawAllTiles( this, this->GetBackground(), 0, 0, 9, 9 );
 }
 
 
@@ -114,20 +114,20 @@ int BouncingBallMain::InitialiseObjects()
 	DestroyOldObjects();
 
 	// Create a new object of type BouncingBall1
-	m_pBall1 = new BouncingBall1( this, 
+	m_pBall1 = new BouncingBall2( this, 
 		0/*Id*/, 1/*Type*/, 
 		100/*Size*/, 
-		1/*Colour*/,
-		"A"/*Label*/, 
+		2/*Colour*/,
+		"B"/*Label*/, 
 		-10/*XLabelOffset*/,
-		-15/*YLabelOffset*/, 
-		&m );
+		-15/*YLabelOffset*/  );
 
 	// Bouncing ball 1 has a movement object, tells it to move from
 	// position a to position b, over a specific period of time.
 	// The update for the ball will reverse the move at the end of this time
-	m_pBall1->SetMovement( GetTime(), GetTime()+1000, GetTime(), 100, 100, 700, 500 );
-
+	//m_pBall1->SetMovement( GetTime(), GetTime()+1000, GetTime(), 100, 100, 700, 500 );
+	m_pBall1->SetPosition( 100,100 );
+	m_pBall1->SetSpeed( 1.1,1.0 );
 	// Create another, different, type of ball
 	m_pBall2 = new BouncingBall2( this, 
 		0/*Id*/, 1/*Type*/, 

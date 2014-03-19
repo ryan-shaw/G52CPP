@@ -88,7 +88,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BaseAMain.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="BaseEngine.h" />
     <ClInclude Include="DisplayableObject.h" />
@@ -110,16 +109,13 @@
     <ClInclude Include="Demo4Main.h" />
     <ClInclude Include="Demo4Object.h" />
     <ClInclude Include="Demo4TileManager.h" />
-    <ClInclude Include="MyProjectMain.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BaseAMain.cpp" />
     <ClCompile Include="mainfunction.cpp" />
     <ClCompile Include="BaseEngine.cpp" />
     <ClCompile Include="DisplayableObject.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="JPGImage.cpp" />
-    <ClCompile Include="MyProjectMain.cpp" />
     <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="BouncingBall.cpp" />
     <ClCompile Include="BouncingBallMain.cpp" />

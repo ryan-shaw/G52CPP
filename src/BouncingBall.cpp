@@ -26,8 +26,8 @@ BouncingBall::BouncingBall( BouncingBallMain* pEngine, int iID,
 	m_iStartDrawPosY = -m_iSize/2;
 
 	// Record the ball size as both height and width
-	m_iDrawWidth = m_iSize;
-	m_iDrawHeight = m_iSize;
+	height = m_iDrawWidth = m_iSize;
+	width = m_iDrawHeight = m_iSize;
 	
 	// Just put it somewhere initially
 	m_iPreviousScreenX = m_iCurrentScreenX = m_iDrawWidth;
@@ -101,6 +101,7 @@ Handle the update action, moving the object and/or handling any game logic
 void BouncingBall::DoUpdate( int iCurrentTime )
 {
 	// Ensure that the object gets redrawn on the display, if something changed
+	
 	RedrawObjects();
 }
 
@@ -235,8 +236,28 @@ void BouncingBall2::DoUpdate( int iCurrentTime )
 	// Work out current position
 	m_iCurrentScreenX = (int)(m_dX+0.5);
 	m_iCurrentScreenY = (int)(m_dY+0.5);
+	
+	DisplayableObject* o;
+	for ( int iObjectId = 0 ;(o = m_pEngine->GetDisplayableObject( iObjectId )) != NULL ; iObjectId++ )
+	{
+		if(o == this)
+			continue;
+		printf("O1: %f, %f, %f, %f", o->GetXCentre(), o->GetYCentre(), 10, 10);
+		if(checkCollision(o->GetXCentre(), o->GetYCentre(), 10, 10, this->GetXCentre(), this->GetYCentre(), this->width, this->height)){
+			printf("Collision!");
+		}
+	}
 
 	// Ensure that the object gets redrawn on the display, if something changed
 	RedrawObjects();
 }
 
+bool BouncingBall2::checkCollision(float Ax, float Ay, float Aw, float Ah, float Bx, float By, float Bw, float Bh) //Funcfion for checking collision
+{
+  if ( Ay+Ah < By ) return false; //if A is more to the left than B
+  else if ( Ay > By+Bh ) return false; //if A is more to the right than B
+  else if ( Ax+Aw < Bx ) return false; //if A is higher than B
+  else if ( Ax > Bx+Bw ) return false; //if A is lower than B
+ 
+  return true; //There is a collision because none of above returned false
+}

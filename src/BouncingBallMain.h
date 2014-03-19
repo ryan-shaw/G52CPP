@@ -23,7 +23,7 @@ class BouncingBallMain :
 {
 protected:
 	// Three member variables, to store pointers to the three balls
-	BouncingBall1* m_pBall1;
+	BouncingBall2* m_pBall1;
 	BouncingBall2* m_pBall2;
 	BouncingBall2* m_pBall3;
 
@@ -64,6 +64,7 @@ public:
 
 	// Handle key presses if necessary
 	virtual void KeyDown(int iKeyCode);
+	
 };
 
 #endif
