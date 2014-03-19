@@ -75,19 +75,13 @@
     <ClInclude Include="Demo3TileManager.h">
       <Filter>Header Files\Demo</Filter>
     </ClInclude>
-    <ClInclude Include="Demo4Main.h">
-      <Filter>Header Files\Demo</Filter>
-    </ClInclude>
-    <ClInclude Include="Demo4Object.h">
-      <Filter>Header Files\Demo</Filter>
-    </ClInclude>
     <ClInclude Include="Demo4TileManager.h">
       <Filter>Header Files\Demo</Filter>
     </ClInclude>
-    <ClInclude Include="BouncingBall.h">
+    <ClInclude Include="MyMain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BouncingBallMain.h">
+    <ClInclude Include="MyBall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -134,19 +128,13 @@
     <ClCompile Include="Demo3TileManager.cpp">
       <Filter>Source Files\Demo</Filter>
     </ClCompile>
-    <ClCompile Include="Demo4Main.cpp">
-      <Filter>Source Files\Demo</Filter>
-    </ClCompile>
-    <ClCompile Include="Demo4Object.cpp">
-      <Filter>Source Files\Demo</Filter>
-    </ClCompile>
     <ClCompile Include="Demo4TileManager.cpp">
       <Filter>Source Files\Demo</Filter>
     </ClCompile>
-    <ClCompile Include="BouncingBall.cpp">
+    <ClCompile Include="MyMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BouncingBallMain.cpp">
+    <ClCompile Include="MyBall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
