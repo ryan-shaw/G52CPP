@@ -13,16 +13,20 @@ class PlayerWall : public DisplayableObject
 public:
 	PlayerWall(BouncingBallMain* pEngine);
 	
-	virtual ~PlayerWall(void);
+	//virtual ~PlayerWall(void);
 
 	void Draw();
 
 	void DoUpdate( int iCurrentTime );
 
-	int m_iDrawWidth;
-	int m_iDrawHeight;
+	int GetDrawWidth(){return m_iDrawWidth;}
+	int GetDrawHeight(){return m_iDrawHeight;}
 private:
 	BouncingBallMain* m_pEngine;
+	double m_dX;
+	double m_dY;
+	double m_dSX;
+	double m_dSY;
 };
 
 #endif

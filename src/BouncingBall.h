@@ -21,7 +21,8 @@ public:
 	void Draw();
 
 	void DoUpdate( int iCurrentTime );
-
+	// Size of thing to draw
+	int m_iSize;
 private:
 	/** Pointer to the main engine object */
 	BouncingBallMain* m_pEngine;
@@ -32,8 +33,7 @@ private:
 	// Type of thing to draw
 	int m_iDrawType;
 
-	// Size of thing to draw
-	int m_iSize;
+	
 
 	// Colour index to draw with
 	int m_iColour;

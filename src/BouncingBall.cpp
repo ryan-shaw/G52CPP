@@ -158,12 +158,19 @@ void BouncingBall2::DoUpdate( int iCurrentTime )
 
 		// If you need to cast to the sub-class type, you must use dynamic_cast, see lecture 19
 		// We are just using base class parts
-		int iXDiff = pObject->GetXCentre() - (o->m_iDrawWidth/2) - m_iCurrentScreenX;
+		int iXDiff = pObject->GetXCentre() - (o->GetDrawWidth()/2) - m_iCurrentScreenX + m_iSize/2;
 
-		int iYDiff = pObject->GetYCentre() - o->m_iDrawHeight*2 - m_iCurrentScreenY;
+		int iYDiff = pObject->GetYCentre() - o->GetDrawHeight()*2 - m_iCurrentScreenY + m_iSize/2;
 		
-		if(iYDiff == 0 && iXDiff <= 10 && iXDiff >= -80)
+		if(iYDiff == 0 && iXDiff <= 10 && iXDiff >= -80){
 			m_dSY = -m_dSY;
+			float diff = (pObject->GetXCentre() - m_iCurrentScreenX)/500.0;
+			printf("%f\n", diff);
+			m_dSY -= 0.04;
+
+			m_dSX += -diff;
+			printf("%f\n", m_dSY);
+		}
 
 		//printf("DiffX: %d, DiffY: %d\n", iXDiff, iYDiff);
 

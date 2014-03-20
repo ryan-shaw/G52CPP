@@ -71,7 +71,7 @@ int BouncingBallMain::InitialiseObjects()
 		-10/*XLabelOffset*/,
 		-15/*YLabelOffset*/ );
 	m_pBall3->SetPosition( 300,250 );
-	m_pBall3->SetSpeed( 0.8,1.2 );
+	m_pBall3->SetSpeed( 0.8,2.0 );
 
 	m_pWall1 = new PlayerWall(this);
 
@@ -126,6 +126,7 @@ void BouncingBallMain::GameAction()
 // Override to add a node at specified point
 void BouncingBallMain::MouseDown( int iButton, int iX, int iY )
 {
+	m_pBall2->SetSpeed(0.1, 0.1);
 	m_pBall2->SetPosition( iX, iY );
 }
 
