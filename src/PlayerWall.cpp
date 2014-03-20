@@ -28,10 +28,10 @@ void PlayerWall::Draw()
 {
 	//printf("%d %d\n", m_iCurrentScreenX, m_iCurrentScreenY);
 	m_pEngine->DrawScreenRectangle(
-		m_iCurrentScreenX-m_iDrawWidth/2 + 1, 
-		m_iCurrentScreenY-m_iDrawHeight/2 + 1, 
-		m_iCurrentScreenX+m_iDrawWidth/2 - 1, 
-		m_iCurrentScreenY+m_iDrawHeight/2 - 1, 
+		m_iCurrentScreenX - m_iDrawWidth/2	+ 1, 
+		m_iCurrentScreenY - m_iDrawHeight/2 + 1, 
+		m_iCurrentScreenX + m_iDrawWidth/2	- 1, 
+		m_iCurrentScreenY + m_iDrawHeight/2 - 1, 
 		0xffffff);
 	StoreLastScreenPositionAndUpdateRect();
 
