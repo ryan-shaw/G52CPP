@@ -94,6 +94,7 @@
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="JPGImage.h" />
     <ClInclude Include="MovementPosition.h" />
+    <ClInclude Include="Network.h" />
     <ClInclude Include="PlayerWall.h" />
     <ClInclude Include="templates.h" />
     <ClInclude Include="TileManager.h" />
@@ -118,7 +119,9 @@
     <ClCompile Include="DisplayableObject.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="JPGImage.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MyProjectMain.cpp" />
+    <ClCompile Include="Network.cpp" />
     <ClCompile Include="PlayerWall.cpp" />
     <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="BouncingBall.cpp" />

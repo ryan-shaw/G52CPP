@@ -58,7 +58,7 @@
 			m_dSX += 0.001;
 		if ( GetEngine()->IsKeyPressed( SDLK_SPACE ) )
 			m_dSX = m_dSY = 0;
-		printf("%f\n", m_dSX);
+		//printf("%f\n", m_dSX);
 		if(m_dSX < -0.7)
 			m_dSX = -0.7;
 		if(m_dSX > 0.7)

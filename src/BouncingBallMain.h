@@ -21,6 +21,8 @@ class BouncingBall2;
 class BouncingBallMain :
 	public BaseEngine
 {
+private:
+	TTF_Font* font;
 protected:
 	// Three member variables, to store pointers to the three balls
 	PlayerWall* m_pWall1;

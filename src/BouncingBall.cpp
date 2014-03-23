@@ -165,11 +165,11 @@ void BouncingBall2::DoUpdate( int iCurrentTime )
 		if(iYDiff == 0 && iXDiff <= 10 && iXDiff >= -80){
 			m_dSY = -m_dSY;
 			float diff = (pObject->GetXCentre() - m_iCurrentScreenX)/500.0;
-			printf("%f\n", diff);
+			//printf("%f\n", diff);
 			m_dSY -= 0.04;
 
 			m_dSX += -diff;
-			printf("%f\n", m_dSY);
+			//printf("%f\n", m_dSY);
 		}
 
 		//printf("DiffX: %d, DiffY: %d\n", iXDiff, iYDiff);
@@ -205,8 +205,9 @@ void BouncingBall2::DoUpdate( int iCurrentTime )
 	if ( (m_dY+m_iStartDrawPosY+m_iDrawHeight) > (GetEngine()->GetScreenHeight()-1) )
 	{
 		m_dY = GetEngine()->GetScreenHeight() -1 - m_iStartDrawPosY - m_iDrawHeight;
-		if ( m_dSY > 0 )
-			m_dSY = -m_dSY;
+		if ( m_dSY > 0 ){
+			m_dSX = m_dSY = 0;
+		}
 	}
 
 	// Work out current position

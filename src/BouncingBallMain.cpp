@@ -12,6 +12,8 @@
 
 #include "TileManager.h"
 
+#include "Network.h"
+
 /*
 Draw the background of the screen.
 This fills the background with black
@@ -43,6 +45,11 @@ Sub-classes need to implement this function.
 */
 int BouncingBallMain::InitialiseObjects()
 {
+	Network network;
+	network.InitNetwork();
+	// Load the font
+	font=TTF_OpenFont("Cornerstone Regular.ttf", 10);
+
 	// Record the fact that we are about to change the array - so it doesn't get used elsewhere without reloading it
 	DrawableObjectsChanged();
 
@@ -104,7 +111,9 @@ int BouncingBallMain::InitialiseObjects()
 void BouncingBallMain::DrawStrings()
 {
 	CopyBackgroundPixels( 0/*X*/, 0/*Y*/, GetScreenWidth(), 30/*Height*/ );
-	DrawScreenString( 150, 10, "Example text", 0xffffff, NULL );
+	int w,h;
+	TTF_SizeUTF8(font, "Main Menu", &w, &h);
+	DrawScreenString( GetScreenWidth()/2-(w), 10, "Main Menu", 0xffffff, NULL );
 	SetNextUpdateRect( 0/*X*/, 0/*Y*/, GetScreenWidth(), 30/*Height*/ );
 }
 
