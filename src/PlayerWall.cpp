@@ -4,11 +4,9 @@
 #include "BouncingBallMain.h"
 
 	// Constructor has to set up all of the position and size members
-	PlayerWall::PlayerWall(BouncingBallMain* pEngine )
+	PlayerWall::PlayerWall(BouncingBallMain* pEngine, bool pos) // True pos = bottom, false = top
 		: DisplayableObject( pEngine )
 	{
-		// The ball coordinate will be the centre of the ball
-		// Because we start drawing half the size to the top-left.
 		m_iStartDrawPosX = -40;
 		m_iStartDrawPosY = -3;
 		// Record the ball size as both height and width
@@ -19,7 +17,7 @@
 		//m_dY = m_iPreviousScreenY = m_iCurrentScreenY = m_iDrawHeight;
 
 		m_dX = m_iPreviousScreenX = m_iCurrentScreenX = (pEngine->GetScreenWidth()/2);
-		m_dY = m_iPreviousScreenY = m_iCurrentScreenY = pEngine->GetScreenHeight()-10;
+		m_dY = m_iPreviousScreenY = m_iCurrentScreenY = pos ? pEngine->GetScreenHeight()-10 : 10;
 		// Speed
 		m_dSX = 0;
 		m_dSY = 0;

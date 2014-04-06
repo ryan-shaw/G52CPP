@@ -95,35 +95,15 @@ void BouncingBall::Draw()
 	StoreLastScreenPositionAndUpdateRect();
 }
 
-/**
-Handle the update action, moving the object and/or handling any game logic
-*/
-void BouncingBall::DoUpdate( int iCurrentTime )
-{
-	// Ensure that the object gets redrawn on the display, if something changed
-	RedrawObjects();
-}
 
-/** Constructor */
-BouncingBall2::BouncingBall2( BouncingBallMain* pEngine, int iID, 
-							int iDrawType, int iSize, int iColour,
-							char* szLabel, 
-							int iXLabelOffset, int iYLabelOffset)
-: BouncingBall( pEngine, iID, iDrawType, iSize, iColour, szLabel, iXLabelOffset, iYLabelOffset )
-, m_dX( iSize )
-, m_dY( iSize )
-, m_dSX(0)
-, m_dSY(0)
-{
-}
 
-void BouncingBall2::SetPosition( double dX, double dY )
+void BouncingBall::SetPosition( double dX, double dY )
 {
 	m_dX = dX;
 	m_dY = dY;
 }
 
-void BouncingBall2::SetSpeed( double dSX, double dSY )
+void BouncingBall::SetSpeed( double dSX, double dSY )
 {
 	m_dSX = dSX;
 	m_dSY = dSY;
@@ -132,7 +112,7 @@ void BouncingBall2::SetSpeed( double dSX, double dSY )
 /**
 Handle the update action, moving the object and/or handling any game logic
 */
-void BouncingBall2::DoUpdate( int iCurrentTime )
+void BouncingBall::DoUpdate( int iCurrentTime )
 {
 	/*if ( GetEngine()->IsKeyPressed( SDLK_UP ) )
 		m_dSY -= 0.01;
@@ -164,9 +144,18 @@ void BouncingBall2::DoUpdate( int iCurrentTime )
 		
 		if(iYDiff == 0 && iXDiff <= 10 && iXDiff >= -80){
 			m_dSY = -m_dSY;
-			float diff = (pObject->GetXCentre() - m_iCurrentScreenX)/500.0;
+			float diff = (pObject->GetXCentre() - m_iCurrentScreenX)/400.0;
 			//printf("%f\n", diff);
 			m_dSY -= 0.04;
+
+			m_dSX += -diff;
+			//printf("%f\n", m_dSY);
+		}
+		if(iXDiff <= 13 && iXDiff >= -80 && iYDiff == -13){
+			m_dSY = -m_dSY;
+			float diff = (pObject->GetXCentre() - m_iCurrentScreenX)/400.0;
+			//printf("%f\n", diff);
+			m_dSY += 0.04;
 
 			m_dSX += -diff;
 			//printf("%f\n", m_dSY);

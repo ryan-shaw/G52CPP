@@ -17,6 +17,9 @@ public:
 		char* szLabel, int iXLabelOffset, int iYLabelOffset );
 
 	virtual ~BouncingBall(void);
+	void SetPosition( double dX, double dY );
+
+	void SetSpeed( double dSX, double dSY );
 
 	void Draw();
 
@@ -44,31 +47,11 @@ private:
 	// Label offset in pixels
 	int m_iXLabelOffset;
 	int m_iYLabelOffset;
-};
-
-class TileManager;
-
-class BouncingBall2 :
-	public BouncingBall
-{
-public:
-	BouncingBall2(BouncingBallMain* pEngine, int iID, 
-		int iDrawType, int iSize, int iColour,
-		char* szLabel, int iXLabelOffset, int iYLabelOffset );
-
-	void SetPosition( double dX, double dY );
-
-	void SetSpeed( double dSX, double dSY );
-
-	void DoUpdate( int iCurrentTime );
-
 protected:
 	double m_dX;
 	double m_dY;
 	double m_dSX;
 	double m_dSY;
-
 };
-
 
 #endif

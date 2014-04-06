@@ -11,7 +11,7 @@ class BaseEngine;
 class PlayerWall : public DisplayableObject
 {
 public:
-	PlayerWall(BouncingBallMain* pEngine);
+	PlayerWall(BouncingBallMain* pEngine, bool pos);
 	
 	//virtual ~PlayerWall(void);
 

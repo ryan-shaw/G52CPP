@@ -1,6 +1,6 @@
  CourseworkBase
 
- Timestamp is 532f1ecc (Sun Mar 23 17:50:04 2014)
+ Timestamp is 53414e21 (Sun Apr 06 13:52:49 2014)
 
  Preferred load address is 00400000
 
@@ -42,19 +42,20 @@
 
  0000:00000000       __except_list              00000000     <absolute>
  0000:0000001a       ___safe_se_handler_count   0000001a     <absolute>
- 0000:00009876       __ldused                   00009876     <absolute>
  0000:00009876       __fltused                  00009876     <absolute>
+ 0000:00009876       __ldused                   00009876     <absolute>
  0000:00000000       ___ImageBase               00400000     <linker-defined>
  0001:00000cd0       ??0BouncingBallMain@@QAE@XZ 00401cd0 f i mainfunction.obj
  0001:00000d90       ??0TileManager@@QAE@XZ     00401d90 f i mainfunction.obj
  0001:00000e00       ??1BouncingBallMain@@UAE@XZ 00401e00 f i mainfunction.obj
  0001:00000e80       ??1TileManager@@QAE@XZ     00401e80 f i mainfunction.obj
- 0001:00000ee0       ??_EBouncingBallMain@@UAEPAXI@Z 00401ee0 f i mainfunction.obj
  0001:00000ee0       ??_GBouncingBallMain@@UAEPAXI@Z 00401ee0 f i mainfunction.obj
+ 0001:00000ee0       ??_EBouncingBallMain@@UAEPAXI@Z 00401ee0 f i mainfunction.obj
  0001:00000f30       ?DrawTile@TileManager@@UAEXPAVBaseEngine@@PAUSDL_Surface@@HH@Z 00401f30 f i mainfunction.obj
  0001:00000fb0       ?DrawTile@TileManager@@UAEXPAVBaseEngine@@PAUSDL_Surface@@HHHH@Z 00401fb0 f i mainfunction.obj
  0001:00001000       ?GetModifiedTime@BaseEngine@@UAEHXZ 00402000 f i mainfunction.obj
  0001:00001020       _SDL_main                  00402020 f   mainfunction.obj
+ 0001:000010d0       ?SetPosition@BouncingBall@@QAEXNN@Z 004020d0 f   BouncingBall.obj
  0001:00001100       ??$GetAngle@N@@YANNNNN@Z   00402100 f i BaseEngine.obj
  0001:000011c0       ??$Swap@H@@YAXAAH0@Z       004021c0 f i BaseEngine.obj
  0001:00001200       ??$Swap@N@@YAXAAN0@Z       00402200 f i BaseEngine.obj
@@ -70,14 +71,18 @@
  0001:00001810       ?DrawChanges@BaseEngine@@UAEXXZ 00402810 f   BaseEngine.obj
  0001:00001860       ?DrawChangingObjects@BaseEngine@@UAEXXZ 00402860 f   BaseEngine.obj
  0001:000018f0       ?DrawHollowOval@BaseEngine@@QAEXHHHHHHHHIPAUSDL_Surface@@@Z 004028f0 f   BaseEngine.obj
+ 0001:00001b60       ??_EBouncingBall@@UAEPAXI@Z 00402b60 f i BouncingBall.obj
+ 0001:00001b60       ??_GBouncingBall@@UAEPAXI@Z 00402b60 f i BouncingBall.obj
  0001:00001bf0       ?DrawLine@BaseEngine@@QAEXNNNNIPAUSDL_Surface@@@Z 00402bf0 f   BaseEngine.obj
  0001:00001da0       ?DrawOval@BaseEngine@@QAEXHHHHIPAUSDL_Surface@@@Z 00402da0 f   BaseEngine.obj
  0001:00001f70       ?DrawPolygon@BaseEngine@@QAEXHPAN0IPAUSDL_Surface@@@Z 00402f70 f   BaseEngine.obj
+ 0001:00002770       ?SetupBackgroundBuffer@BouncingBallMain@@UAEXXZ 00403770 f   BouncingBallMain.obj
  0001:00002970       ?DrawRectangle@BaseEngine@@QAEXHHHHIPAUSDL_Surface@@@Z 00403970 f   BaseEngine.obj
  0001:00002a40       ?DrawScreen@BaseEngine@@UAEXXZ 00403a40 f   BaseEngine.obj
  0001:00002a90       ?DrawString@BaseEngine@@QAEXHHPBDIPAVFont@@PAUSDL_Surface@@@Z 00403a90 f   BaseEngine.obj
  0001:00002c20       ?DrawStrings@BaseEngine@@UAEXXZ 00403c20 f   BaseEngine.obj
  0001:00002c40       ?DrawThickLine@BaseEngine@@QAEXNNNNIHPAUSDL_Surface@@@Z 00403c40 f   BaseEngine.obj
+ 0001:00003060       ?KeyDown@BouncingBallMain@@UAEXH@Z 00404060 f   BouncingBallMain.obj
  0001:00003170       ?DrawTriangle@BaseEngine@@QAEXNNNNNNIPAUSDL_Surface@@@Z 00404170 f   BaseEngine.obj
  0001:00003490       ?DrawVerticalSidedRegion@BaseEngine@@QAEXNNNNNNIPAUSDL_Surface@@@Z 00404490 f   BaseEngine.obj
  0001:00003820       ?FillBackground@BaseEngine@@UAEXI@Z 00404820 f   BaseEngine.obj
@@ -107,8 +112,8 @@
  0001:00004730       ?UpdateAllObjects@BaseEngine@@UAEXH@Z 00405730 f   BaseEngine.obj
  0001:000047d0       ??0DisplayableObject@@QAE@PAVBaseEngine@@@Z 004057d0 f   DisplayableObject.obj
  0001:00004870       ??1DisplayableObject@@UAE@XZ 00405870 f   DisplayableObject.obj
- 0001:000048a0       ??_GDisplayableObject@@UAEPAXI@Z 004058a0 f i DisplayableObject.obj
  0001:000048a0       ??_EDisplayableObject@@UAEPAXI@Z 004058a0 f i DisplayableObject.obj
+ 0001:000048a0       ??_GDisplayableObject@@UAEPAXI@Z 004058a0 f i DisplayableObject.obj
  0001:000048f0       ?DoUpdate@DisplayableObject@@UAEXH@Z 004058f0 f   DisplayableObject.obj
  0001:00004910       ?Draw@DisplayableObject@@UAEXXZ 00405910 f   DisplayableObject.obj
  0001:000049d0       ?GetRedrawRect@DisplayableObject@@UAEXPAUSDL_Rect@@@Z 004059d0 f   DisplayableObject.obj
@@ -136,8 +141,8 @@
  0001:00006070       ?ShrinkFrom@ImageData@@QAEXPAV1@H@Z 00407070 f   JPGImage.obj
  0001:000062e0       ??0SimpleShape@@QAE@PAVMyProjectMain@@@Z 004072e0 f i MyProjectMain.obj
  0001:00006430       ??1SimpleShape@@UAE@XZ     00407430 f i MyProjectMain.obj
- 0001:00006460       ??_ESimpleShape@@UAEPAXI@Z 00407460 f i MyProjectMain.obj
  0001:00006460       ??_GSimpleShape@@UAEPAXI@Z 00407460 f i MyProjectMain.obj
+ 0001:00006460       ??_ESimpleShape@@UAEPAXI@Z 00407460 f i MyProjectMain.obj
  0001:000064b0       ?DoUpdate@SimpleShape@@UAEXH@Z 004074b0 f i MyProjectMain.obj
  0001:00006920       ?Draw@SimpleShape@@UAEXXZ  00407920 f i MyProjectMain.obj
  0001:000069d0       ?DrawScreenRectangle@BaseEngine@@QAEXHHHHI@Z 004079d0 f i MyProjectMain.obj
@@ -188,8 +193,8 @@
  0001:000077e0       ??8error_condition@std@@QBE_NABV01@@Z 004087e0 f i Network.obj
  0001:00007860       ??_E_Generic_error_category@std@@UAEPAXI@Z 00408860 f i Network.obj
  0001:00007860       ??_G_Generic_error_category@std@@UAEPAXI@Z 00408860 f i Network.obj
- 0001:000078b0       ??_G_Iostream_error_category@std@@UAEPAXI@Z 004088b0 f i Network.obj
  0001:000078b0       ??_E_Iostream_error_category@std@@UAEPAXI@Z 004088b0 f i Network.obj
+ 0001:000078b0       ??_G_Iostream_error_category@std@@UAEPAXI@Z 004088b0 f i Network.obj
  0001:00007900       ??_E_System_error_category@std@@UAEPAXI@Z 00408900 f i Network.obj
  0001:00007900       ??_G_System_error_category@std@@UAEPAXI@Z 00408900 f i Network.obj
  0001:00007950       ??_Gerror_category@std@@UAEPAXI@Z 00408950 f i Network.obj
@@ -239,7 +244,7 @@
  0001:00008c70       ?system_category@std@@YAABVerror_category@1@XZ 00409c70 f i Network.obj
  0001:00008c90       ?value@error_code@std@@QBEHXZ 00409c90 f i Network.obj
  0001:00008cb0       ?value@error_condition@std@@QBEHXZ 00409cb0 f i Network.obj
- 0001:00008cd0       ??0PlayerWall@@QAE@PAVBouncingBallMain@@@Z 00409cd0 f   PlayerWall.obj
+ 0001:00008cd0       ??0PlayerWall@@QAE@PAVBouncingBallMain@@_N@Z 00409cd0 f   PlayerWall.obj
  0001:00008e30       ??1PlayerWall@@UAE@XZ      00409e30 f i PlayerWall.obj
  0001:00008e60       ??_GPlayerWall@@UAEPAXI@Z  00409e60 f i PlayerWall.obj
  0001:00008e60       ??_EPlayerWall@@UAEPAXI@Z  00409e60 f i PlayerWall.obj
@@ -253,30 +258,19 @@
  0001:000095c0       ?GetValue@TileManager@@QAEHHH@Z 0040a5c0 f i TileManager.obj
  0001:00009600       ?SetValue@TileManager@@QAEXHHH@Z 0040a600 f i TileManager.obj
  0001:00009640       ?UpdateTileAt@TileManager@@QAEXPAVBaseEngine@@HHHHH@Z 0040a640 f   TileManager.obj
- 0001:00009740       ??0BouncingBall2@@QAE@PAVBouncingBallMain@@HHHHPADHH@Z 0040a740 f   BouncingBall.obj
- 0001:000097f0       ??0BouncingBall@@QAE@PAVBouncingBallMain@@HHHHPADHH@Z 0040a7f0 f   BouncingBall.obj
- 0001:00009960       ??1BouncingBall2@@UAE@XZ   0040a960 f i BouncingBall.obj
- 0001:00009990       ??1BouncingBall@@UAE@XZ    0040a990 f   BouncingBall.obj
- 0001:000099c0       ??_EBouncingBall2@@UAEPAXI@Z 0040a9c0 f i BouncingBall.obj
- 0001:000099c0       ??_GBouncingBall2@@UAEPAXI@Z 0040a9c0 f i BouncingBall.obj
- 0001:00009a10       ??_EBouncingBall@@UAEPAXI@Z 0040aa10 f i BouncingBall.obj
- 0001:00009a10       ??_GBouncingBall@@UAEPAXI@Z 0040aa10 f i BouncingBall.obj
- 0001:00009a60       ?DoUpdate@BouncingBall2@@UAEXH@Z 0040aa60 f   BouncingBall.obj
- 0001:00009ee0       ?DoUpdate@BouncingBall@@UAEXH@Z 0040aee0 f   BouncingBall.obj
- 0001:00009f10       ?Draw@BouncingBall@@UAEXXZ 0040af10 f   BouncingBall.obj
- 0001:0000a210       ?GetDrawHeight@PlayerWall@@QAEHXZ 0040b210 f i BouncingBall.obj
- 0001:0000a230       ?GetDrawWidth@PlayerWall@@QAEHXZ 0040b230 f i BouncingBall.obj
- 0001:0000a250       ?GetXCentre@DisplayableObject@@QAEHXZ 0040b250 f i BouncingBall.obj
- 0001:0000a290       ?GetYCentre@DisplayableObject@@QAEHXZ 0040b290 f i BouncingBall.obj
- 0001:0000a2d0       ?IsVisible@DisplayableObject@@QAE_NXZ 0040b2d0 f i BouncingBall.obj
- 0001:0000a2f0       ?SetPosition@BouncingBall2@@QAEXNN@Z 0040b2f0 f   BouncingBall.obj
- 0001:0000a330       ?SetSpeed@BouncingBall2@@QAEXNN@Z 0040b330 f   BouncingBall.obj
- 0001:0000a370       ?DrawStrings@BouncingBallMain@@UAEXXZ 0040b370 f   BouncingBallMain.obj
- 0001:0000a420       ?GameAction@BouncingBallMain@@UAEXXZ 0040b420 f   BouncingBallMain.obj
- 0001:0000a480       ?InitialiseObjects@BouncingBallMain@@UAEHXZ 0040b480 f   BouncingBallMain.obj
- 0001:0000a820       ?KeyDown@BouncingBallMain@@UAEXH@Z 0040b820 f   BouncingBallMain.obj
- 0001:0000a860       ?MouseDown@BouncingBallMain@@UAEXHHH@Z 0040b860 f   BouncingBallMain.obj
- 0001:0000a8e0       ?SetupBackgroundBuffer@BouncingBallMain@@UAEXXZ 0040b8e0 f   BouncingBallMain.obj
+ 0001:000097f0       ??1BouncingBall@@UAE@XZ    0040a7f0 f   BouncingBall.obj
+ 0001:00009a10       ?GetDrawHeight@PlayerWall@@QAEHXZ 0040aa10 f i BouncingBall.obj
+ 0001:00009ab0       ?GetDrawWidth@PlayerWall@@QAEHXZ 0040aab0 f i BouncingBall.obj
+ 0001:00009ad0       ?AddObjects@BouncingBallMain@@QAEXXZ 0040aad0 f   BouncingBallMain.obj
+ 0001:00009ee0       ?GetXCentre@DisplayableObject@@QAEHXZ 0040aee0 f i BouncingBall.obj
+ 0001:00009f10       ?GetYCentre@DisplayableObject@@QAEHXZ 0040af10 f i BouncingBall.obj
+ 0001:0000a210       ?IsVisible@DisplayableObject@@QAE_NXZ 0040b210 f i BouncingBall.obj
+ 0001:0000a250       ?SetSpeed@BouncingBall@@QAEXNN@Z 0040b250 f   BouncingBall.obj
+ 0001:0000a480       ?GameAction@BouncingBallMain@@UAEXXZ 0040b480 f   BouncingBallMain.obj
+ 0001:0000a4d0       ?DrawStrings@BouncingBallMain@@UAEXXZ 0040b4d0 f   BouncingBallMain.obj
+ 0001:0000a6b0       ??0BouncingBall@@QAE@PAVBouncingBallMain@@HHHHPADHH@Z 0040b6b0 f   BouncingBall.obj
+ 0001:0000a820       ?InitialiseObjects@BouncingBallMain@@UAEHXZ 0040b820 f   BouncingBallMain.obj
+ 0001:0000a8e0       ?MouseDown@BouncingBallMain@@UAEXHHH@Z 0040b8e0 f   BouncingBallMain.obj
  0001:0000aa70       ??0Demo2aMain@@QAE@XZ      0040ba70 f   Demo2aMain.obj
  0001:0000aab0       ??1Demo2aMain@@UAE@XZ      0040bab0 f   Demo2aMain.obj
  0001:0000aae0       ??_GDemo2aMain@@UAEPAXI@Z  0040bae0 f i Demo2aMain.obj
@@ -294,8 +288,8 @@
  0001:0000af20       ?SetupBackgroundBuffer@Demo2Main@@UAEXXZ 0040bf20 f   Demo2Main.obj
  0001:0000af50       ??0Demo2Object@@QAE@PAVDemo2Main@@@Z 0040bf50 f   Demo2Object.obj
  0001:0000b050       ??1Demo2Object@@UAE@XZ     0040c050 f   Demo2Object.obj
- 0001:0000b080       ??_EDemo2Object@@UAEPAXI@Z 0040c080 f i Demo2Object.obj
  0001:0000b080       ??_GDemo2Object@@UAEPAXI@Z 0040c080 f i Demo2Object.obj
+ 0001:0000b080       ??_EDemo2Object@@UAEPAXI@Z 0040c080 f i Demo2Object.obj
  0001:0000b0d0       ?DoUpdate@Demo2Object@@UAEXH@Z 0040c0d0 f   Demo2Object.obj
  0001:0000b1a0       ?Draw@Demo2Object@@UAEXXZ  0040c1a0 f   Demo2Object.obj
  0001:0000b230       ?DrawScreenOval@BaseEngine@@QAEXHHHHI@Z 0040c230 f i Demo2Object.obj
@@ -320,8 +314,8 @@
  0001:0000bc20       ??0Demo3Object@@QAE@PAVDemo3Main@@HH@Z 0040cc20 f   Demo3Object.obj
  0001:0000bd70       ??0MovementPosition@@QAE@XZ 0040cd70 f i Demo3Object.obj
  0001:0000bdf0       ??1Demo3Object@@UAE@XZ     0040cdf0 f   Demo3Object.obj
- 0001:0000be20       ??_GDemo3Object@@UAEPAXI@Z 0040ce20 f i Demo3Object.obj
  0001:0000be20       ??_EDemo3Object@@UAEPAXI@Z 0040ce20 f i Demo3Object.obj
+ 0001:0000be20       ??_GDemo3Object@@UAEPAXI@Z 0040ce20 f i Demo3Object.obj
  0001:0000be70       ?Calculate@MovementPosition@@QAEXH@Z 0040ce70 f i Demo3Object.obj
  0001:0000bf70       ?DoUpdate@Demo3Object@@UAEXH@Z 0040cf70 f   Demo3Object.obj
  0001:0000c200       ?Draw@Demo3Object@@UAEXXZ  0040d200 f   Demo3Object.obj
@@ -334,8 +328,8 @@
  0001:0000c430       ?Setup@MovementPosition@@QAEXHHHHHH@Z 0040d430 f i Demo3Object.obj
  0001:0000c4b0       ??0Demo3ObjectFinished@@QAE@PAVDemo3Main@@HH@Z 0040d4b0 f   Demo3ObjectFinished.obj
  0001:0000c600       ??1Demo3ObjectFinished@@UAE@XZ 0040d600 f   Demo3ObjectFinished.obj
- 0001:0000c630       ??_GDemo3ObjectFinished@@UAEPAXI@Z 0040d630 f i Demo3ObjectFinished.obj
  0001:0000c630       ??_EDemo3ObjectFinished@@UAEPAXI@Z 0040d630 f i Demo3ObjectFinished.obj
+ 0001:0000c630       ??_GDemo3ObjectFinished@@UAEPAXI@Z 0040d630 f i Demo3ObjectFinished.obj
  0001:0000c680       ?DoUpdate@Demo3ObjectFinished@@UAEXH@Z 0040d680 f   Demo3ObjectFinished.obj
  0001:0000ca40       ?Draw@Demo3ObjectFinished@@UAEXXZ 0040da40 f   Demo3ObjectFinished.obj
  0001:0000cb20       ?GetXDiffForDirection@Demo3ObjectFinished@@QAEHH@Z 0040db20 f i Demo3ObjectFinished.obj
@@ -508,16 +502,19 @@
  0001:0000f74a       _strrchr                   0041074a f   MSVCRT:MSVCR110.dll
  0001:0000f750       __alloca_probe_16          00410750 f   MSVCRT:alloca16.obj
  0001:0000f766       __alloca_probe_8           00410766     MSVCRT:alloca16.obj
- 0001:0000f780       __alloca_probe             00410780     MSVCRT:chkstk.obj
  0001:0000f780       __chkstk                   00410780 f   MSVCRT:chkstk.obj
+ 0001:0000f780       __alloca_probe             00410780     MSVCRT:chkstk.obj
  0001:0000f7ac       _SDL_SetModuleHandle       004107ac f   sdl:SDL.dll
  0001:0000f7b2       _SDL_strlcpy               004107b2 f   sdl:SDL.dll
+ 0001:0000f7c0       ?DoUpdate@BouncingBall@@UAEXH@Z 004107c0 f   BouncingBall.obj
+ 0001:0000fd80       ?Draw@BouncingBall@@UAEXXZ 00410d80 f   BouncingBall.obj
  0002:00000000       ___xc_a                    00416000     MSVCRT:cinitexe.obj
  0002:00000338       ___xc_z                    00416338     MSVCRT:cinitexe.obj
  0002:0000043c       ___xi_a                    0041643c     MSVCRT:cinitexe.obj
  0002:0000084c       ___xi_z                    0041684c     MSVCRT:cinitexe.obj
  0002:0000098c       ??_7TileManager@@6B@       0041698c     mainfunction.obj
  0002:000009ac       ??_7BouncingBallMain@@6B@  004169ac     mainfunction.obj
+ 0002:00000a00       ??_C@_09GKOJHKNC@vs?5Player?$AA@ 00416a00     BouncingBallMain.obj
  0002:00000a14       ??_C@_0CI@ODDNEOI@My?5Demonstration?5Program?5?3?5Size?5@ 00416a14     mainfunction.obj
  0002:00000a44       ??_C@_0BI@NHFDFHOB@Cornerstone?5Regular?4ttf?$AA@ 00416a44     mainfunction.obj
  0002:00000a64       ??_7BaseEngine@@6B@        00416a64     BaseEngine.obj
@@ -542,6 +539,7 @@
  0002:00000c70       __real@3f50624dd2f1a9fc    00416c70     JPGImage.obj
  0002:00000c80       __xmm@41f00000000000000000000000000000 00416c80     JPGImage.obj
  0002:00000c98       ??_C@_1HO@EDEOIGLM@?$AAc?$AA?3?$AA?2?$AAu?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAr?$AAy?$AAa?$AAn?$AA?2?$AAd?$AAe?$AAs?$AAk?$AAt?$AAo?$AAp?$AA?2?$AAg?$AAi?$AAt?$AA?5?$AAr?$AAe?$AAp?$AAo?$AAs?$AAi@ 00416c98     MyProjectMain.obj
+ 0002:00000d18       ??_C@_09JDDCPHDA@Main?5Menu?$AA@ 00416d18     BouncingBallMain.obj
  0002:00000d30       ??_C@_1BA@GEGIDABA@?$AAi?$AAX?$AA?5?$AA?$DO?$AA?$DN?$AA?5?$AA0?$AA?$AA@ 00416d30     MyProjectMain.obj
  0002:00000d44       ??_C@_1DC@EBDLPFLK@?$AAi?$AAX?$AA?5?$AA?$DM?$AA?5?$AAm?$AA_?$AAi?$AAI?$AAn?$AAt?$AAs?$AAP?$AAe?$AAr?$AAS?$AAc?$AAr?$AAe?$AAe?$AAn?$AAR?$AAo?$AAw?$AA?$AA@ 00416d44     MyProjectMain.obj
  0002:00000d80       ??_C@_1BA@PJGHNBGG@?$AAi?$AAY?$AA?5?$AA?$DO?$AA?$DN?$AA?5?$AA0?$AA?$AA@ 00416d80     MyProjectMain.obj
@@ -732,18 +730,14 @@
  0002:000012b0       __real@3fe6666666666666    004172b0     PlayerWall.obj
  0002:000012c0       __real@bfe6666666666666    004172c0     PlayerWall.obj
  0002:000012d0       ??_7BouncingBall@@6B@      004172d0     BouncingBall.obj
- 0002:000012ec       ??_7BouncingBall2@@6B@     004172ec     BouncingBall.obj
  0002:00001308       __real@3fa47ae147ae147b    00417308     BouncingBall.obj
- 0002:00001318       __real@407f400000000000    00417318     BouncingBall.obj
+ 0002:00001318       __real@4079000000000000    00417318     BouncingBall.obj
  0002:00001330       __xmm@80000000800000008000000080000000 00417330     BouncingBall.obj
- 0002:00001344       ??_C@_01GFHCPBMG@C?$AA@    00417344     BouncingBallMain.obj
- 0002:00001348       ??_C@_01HMGJMAIH@B?$AA@    00417348     BouncingBallMain.obj
- 0002:0000134c       ??_C@_09JDDCPHDA@Main?5Menu?$AA@ 0041734c     BouncingBallMain.obj
+ 0002:00001344       ??_C@_01HMGJMAIH@B?$AA@    00417344     BouncingBallMain.obj
+ 0002:0000134c       ??_C@_0M@OOCNMNFM@vs?5Computer?$AA@ 0041734c     BouncingBallMain.obj
  0002:00001358       __real@3fb999999999999a    00417358     BouncingBallMain.obj
- 0002:00001368       __real@3fe999999999999a    00417368     BouncingBallMain.obj
+ 0002:00001368       __real@3ff09ba5e353f7cf    00417368     BouncingBallMain.obj
  0002:00001378       __real@4059000000000000    00417378     BouncingBallMain.obj
- 0002:00001388       __real@406f400000000000    00417388     BouncingBallMain.obj
- 0002:00001398       __real@4072c00000000000    00417398     BouncingBallMain.obj
  0002:000013ac       ??_7Demo2aMain@@6B@        004173ac     Demo2aMain.obj
  0002:0000141c       ??_7Demo2Main@@6B@         0041741c     Demo2Main.obj
  0002:00001484       ??_C@_0N@HPPCHOIG@Example?5text?$AA@ 00417484     Demo2Main.obj
@@ -827,10 +821,6 @@
  0002:00001f54       ??_R3BouncingBall@@8       00417f54     BouncingBall.obj
  0002:00001f68       ??_R2BouncingBall@@8       00417f68     BouncingBall.obj
  0002:00001f74       ??_R1A@?0A@EA@BouncingBall@@8 00417f74     BouncingBall.obj
- 0002:00001f98       ??_R4BouncingBall2@@6B@    00417f98     BouncingBall.obj
- 0002:00001fb0       ??_R3BouncingBall2@@8      00417fb0     BouncingBall.obj
- 0002:00001fc4       ??_R2BouncingBall2@@8      00417fc4     BouncingBall.obj
- 0002:00001fd4       ??_R1A@?0A@EA@BouncingBall2@@8 00417fd4     BouncingBall.obj
  0002:00001ff8       ??_R4Demo2aMain@@6B@       00417ff8     Demo2aMain.obj
  0002:00002010       ??_R3Demo2aMain@@8         00418010     Demo2aMain.obj
  0002:00002024       ??_R2Demo2aMain@@8         00418024     Demo2aMain.obj
@@ -895,7 +885,6 @@
  0003:00000140       ??_R0?AV_System_error_category@std@@@8 0041a140     Network.obj
  0003:00000174       ??_R0?AVPlayerWall@@@8     0041a174     PlayerWall.obj
  0003:00000194       ??_R0?AVBouncingBall@@@8   0041a194     BouncingBall.obj
- 0003:000001b4       ??_R0?AVBouncingBall2@@@8  0041a1b4     BouncingBall.obj
  0003:000001d8       ??_R0?AVDemo2aMain@@@8     0041a1d8     Demo2aMain.obj
  0003:000001f8       ??_R0?AVDemo2Main@@@8      0041a1f8     Demo2Main.obj
  0003:00000214       ??_R0?AVDemo2Object@@@8    0041a214     Demo2Object.obj
