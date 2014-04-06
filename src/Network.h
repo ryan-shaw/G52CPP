@@ -30,8 +30,8 @@ private:
 	char recvbuff[DEFAULT_BUFLEN];
 	int recvbufflen;
 	struct Packet{
-		int size;
-		string data;
+		int x;
+		int y;
 	};
 public:
 	int InitNetwork();

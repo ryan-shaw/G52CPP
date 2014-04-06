@@ -69,9 +69,10 @@ int Network::InitNetwork(){
 	Packet packet;
 	do {
 		//printf("Waiting on recv");
-		packet.size = recv(ClientSocket, (char*)&packet, sizeof(packet), 0);
-		printf("Bytes received: %d\n", packet.size);
-		printf("Data: %c\n", packet.data[0]);
+		int size;
+		size = recv(ClientSocket, (char*)&packet, sizeof(packet), 0);
+		printf("Bytes received: %d\n", size);
+		printf("Data: %d %d\n",packet.x, packet.y);
 	}while(iResult > 0);
 	return 1;
 };

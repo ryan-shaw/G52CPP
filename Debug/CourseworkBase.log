@@ -1,18 +1,40 @@
-﻿Build started 23/03/2014 16:39:20.
+﻿Build started 23/03/2014 17:49:53.
      1>Project "C:\Users\Ryan\Desktop\Git repositories\G52CPP\src\CourseworkBase.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"..\SDL_ttf-2.0.9\include" /I"..\SDL-1.2.13\include" /ZI /nologo /W1 /WX- /Od /Oy- /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\\" /Fd"C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\vc110.pdb" /FR"C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\\" /Gd /TP /analyze- /errorReport:prompt BouncingBallMain.cpp Network.cpp
-         BouncingBallMain.cpp
-     1>c:\users\ryan\desktop\git repositories\g52cpp\src\network.h(34): error C2146: syntax error : missing ';' before identifier 'data'
-     1>c:\users\ryan\desktop\git repositories\g52cpp\src\network.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"..\SDL_ttf-2.0.9\include" /I"..\SDL-1.2.13\include" /ZI /nologo /W1 /WX- /Od /Oy- /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\\" /Fd"C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\vc110.pdb" /FR"C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\\" /Gd /TP /analyze- /errorReport:prompt Network.cpp BouncingBallMain.cpp
          Network.cpp
-     1>c:\users\ryan\desktop\git repositories\g52cpp\src\network.h(34): error C2146: syntax error : missing ';' before identifier 'data'
-     1>c:\users\ryan\desktop\git repositories\g52cpp\src\network.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\ryan\desktop\git repositories\g52cpp\src\network.cpp(74): error C2039: 'data' : is not a member of 'Network::Packet'
-                 c:\users\ryan\desktop\git repositories\g52cpp\src\network.h(32) : see declaration of 'Network::Packet'
+         BouncingBallMain.cpp
          Generating Code...
-     1>Done Building Project "C:\Users\Ryan\Desktop\Git repositories\G52CPP\src\CourseworkBase.vcxproj" (Build target(s)) -- FAILED.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\CourseworkBase.exe" /NOLOGO /LIBPATH:"..\SDL-1.2.13\lib" /LIBPATH:"..\SDL_ttf-2.0.9\lib" sdl.lib sdlmain.lib SDL_ttf.lib SDL_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\CourseworkBase.pdb" /MAP:"map" /SUBSYSTEM:CONSOLE /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE:NO /IMPLIB:"C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\CourseworkBase.lib" /MACHINE:X86 /SAFESEH "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\mainfunction.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\BaseEngine.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\DisplayableObject.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\FontManager.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\JPGImage.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\MainMenu.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\MyProjectMain.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Network.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\PlayerWall.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\TileManager.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\BouncingBall.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\BouncingBallMain.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo2aMain.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo2Main.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo2Object.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo2TileManager.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo3Main.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo3Object.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo3ObjectFinished.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo3TileManager.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo4Main.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo4Object.obj"
+         "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo4TileManager.obj"
+     1>mainfunction.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+         CourseworkBase.vcxproj -> C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\CourseworkBase.exe
+       BscMake:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o"C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\CourseworkBase.bsc" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\mainfunction.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\BaseEngine.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\DisplayableObject.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\FontManager.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\JPGImage.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\MainMenu.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\MyProjectMain.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Network.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\PlayerWall.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\TileManager.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\BouncingBall.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\BouncingBallMain.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo2aMain.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo2Main.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo2Object.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo2TileManager.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo3Main.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo3Object.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo3ObjectFinished.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo3TileManager.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo4Main.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo4Object.sbr" "C:\Users\Ryan\Desktop\Git repositories\G52CPP\/Debug\Demo4TileManager.sbr"
+     1>Done Building Project "C:\Users\Ryan\Desktop\Git repositories\G52CPP\src\CourseworkBase.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:05.52
+Time Elapsed 00:00:18.51
