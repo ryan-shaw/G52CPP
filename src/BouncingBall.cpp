@@ -7,18 +7,14 @@
 
 /** Constructor */
 BouncingBall::BouncingBall( BouncingBallMain* pEngine, int iID, 
-							int iDrawType, int iSize, int iColour,
-							char* szLabel, 
-							int iXLabelOffset, int iYLabelOffset)
+							int iDrawType, int iSize, int iColour)
 : DisplayableObject( pEngine )
 , m_pEngine( pEngine )
 , m_iID(iID)
 , m_iDrawType(iDrawType)
 , m_iSize(iSize)
 , m_iColour(iColour)
-, m_szLabel(szLabel)
-, m_iXLabelOffset(iXLabelOffset)
-, m_iYLabelOffset(iYLabelOffset)
+
 {
 	// The ball coordinate will be the centre of the ball
 	// Because we start drawing half the size to the top-left.
@@ -82,16 +78,6 @@ void BouncingBall::Draw()
 				GetEngine()->SafeSetScreenPixel( iX, iY, uiColourMult * uiColour );
 			}
 
-	// If there is a label then draw the text
-	if ( (m_szLabel!=NULL) && (strlen(m_szLabel)>0) )
-	{
-		//GetEngine()->DrawString( iCentreX+m_iXLabelOffset+1, iCentreY+m_iYLabelOffset+1, m_szLabel, 0xffffff );
-		//GetEngine()->DrawScreenString( iCentreX+m_iXLabelOffset, iCentreY+m_iYLabelOffset, m_szLabel, uiColourText );
-	}
-
-	// Store the position at which the object was last drawn
-	// You MUST do this to ensure that the screen is updated when only drawing movable objects
-	// This tells the system where to 'undraw' the object from
 	StoreLastScreenPositionAndUpdateRect();
 }
 
@@ -112,59 +98,69 @@ void BouncingBall::SetSpeed( double dSX, double dSY )
 /**
 Handle the update action, moving the object and/or handling any game logic
 */
+
+bool collide(int x, int x1, int y, int y1,/* colliding object */ int xx, int xx1, int yy, int yy1){
+	if(x >= xx && x1 <= xx1 && y >= yy && y1 <= yy1)
+		return true;
+	return false;
+}
 void BouncingBall::DoUpdate( int iCurrentTime )
 {
-	/*if ( GetEngine()->IsKeyPressed( SDLK_UP ) )
-		m_dSY -= 0.01;
-	if ( GetEngine()->IsKeyPressed( SDLK_DOWN ) )
-		m_dSY += 0.01;
-	if ( GetEngine()->IsKeyPressed( SDLK_LEFT ) )
-		m_dSX -= 0.01;
-	if ( GetEngine()->IsKeyPressed( SDLK_RIGHT ) )
-		m_dSX += 0.01;
-	if ( GetEngine()->IsKeyPressed( SDLK_SPACE ) )
-		m_dSX = m_dSY = 0;
-		*/
-
 	DisplayableObject* pObject;
-	for ( int iObjectId = 0 ; 
-		 (pObject = GetEngine()->GetDisplayableObject( iObjectId )
-				) != NULL ;
-		iObjectId++ )
+	for(int iObjectId = 0; (pObject = GetEngine()->GetDisplayableObject( iObjectId )) != NULL ; iObjectId++ )
 	{
 		if ( pObject == this ) // This is us, skip it
 			continue;
-		PlayerWall* o = (PlayerWall*) pObject;
+		PlayerWall* o = (PlayerWall*) pObject; // We have no other objects so point checking if it's not a player wall
 
-		// If you need to cast to the sub-class type, you must use dynamic_cast, see lecture 19
-		// We are just using base class parts
-		int iXDiff = pObject->GetXCentre() - (o->GetDrawWidth()/2) - m_iCurrentScreenX + m_iSize/2;
+		//int iXDiff = pObject->GetXCentre() - (o->GetDrawWidth()/2) - m_iCurrentScreenX + m_iSize/2;
+		//int iYDiff = pObject->GetYCentre() - o->GetDrawHeight()*2 - m_iCurrentScreenY + m_iSize/2;
 
-		int iYDiff = pObject->GetYCentre() - o->GetDrawHeight()*2 - m_iCurrentScreenY + m_iSize/2;
-		
+		int xx = o->GetXCentre() - (o->GetDrawWidth()/2);
+		int xx1 = o->GetXCentre() + (o->GetDrawWidth()/2);
+		int yy = o->GetYCentre() - (o->GetDrawHeight()/2);
+		int yy1 = o->GetYCentre() + (o->GetDrawHeight()/2);
+	
+		int x = m_iCurrentScreenX + m_iStartDrawPosX + m_iDrawWidth/2;
+		int x1 = m_iCurrentScreenX + m_iStartDrawPosX + m_iDrawWidth/2;
+
+		int y = m_iCurrentScreenY + m_iStartDrawPosY + m_iDrawHeight/2;
+		int y1 = m_iCurrentScreenY + m_iStartDrawPosY + m_iDrawHeight/2;
+
+		//if(!o->GetPlayer())
+		//	printf("Y: %d, Y1: %d, YY: %d, YY1: %d\n", y, y1, yy, yy1);
+		if(collide(x, x1, y, y1, xx, xx1, yy, yy1)){
+			if(o->GetPlayer()){ //Bot player
+				m_dSY = -m_dSY;
+				float diff = (pObject->GetXCentre() - m_iCurrentScreenX)/400.0; // Bounce angle relative to hit position, lower denomenator means higher angle
+				m_dSY -= 0.04; // Increase speed
+				m_dSX += -diff; // Change horizontal speed
+			}else{ // Top player
+				m_dSY = -m_dSY;
+				float diff = (pObject->GetXCentre() - m_iCurrentScreenX)/400.0; 
+				m_dSY += 0.04;
+				m_dSX += -diff;
+				//printf("Collide");
+			}
+		}
+		//	printf("Collided");
+		/*
+		// Collision
 		if(iYDiff == 0 && iXDiff <= 10 && iXDiff >= -80){
 			m_dSY = -m_dSY;
-			float diff = (pObject->GetXCentre() - m_iCurrentScreenX)/400.0;
-			//printf("%f\n", diff);
-			m_dSY -= 0.04;
-
-			m_dSX += -diff;
-			//printf("%f\n", m_dSY);
+			float diff = (pObject->GetXCentre() - m_iCurrentScreenX)/400.0; // Bounce angle relative to hit position, lower denomenator means higher angle
+			m_dSY -= 0.04; // Increase speed
+			m_dSX += -diff; // Change horizontal speed
 		}
 		if(iXDiff <= 13 && iXDiff >= -80 && iYDiff == -13){
 			m_dSY = -m_dSY;
-			float diff = (pObject->GetXCentre() - m_iCurrentScreenX)/400.0;
-			//printf("%f\n", diff);
+			float diff = (pObject->GetXCentre() - m_iCurrentScreenX)/400.0; 
 			m_dSY += 0.04;
-
 			m_dSX += -diff;
-			//printf("%f\n", m_dSY);
 		}
+		// End collision*/
 
-		//printf("DiffX: %d, DiffY: %d\n", iXDiff, iYDiff);
-
-
-		RedrawObjects();
+		//RedrawObjects();
 	}
 
 	m_dX += m_dSX;
@@ -188,14 +184,14 @@ void BouncingBall::DoUpdate( int iCurrentTime )
 	{
 		m_dY = -m_iStartDrawPosY;
 		if ( m_dSY < 0 )
-			m_dSY = -m_dSY;
+			m_dSX = m_dSY = 0; // Game over, bot player wins
 	}
 
 	if ( (m_dY+m_iStartDrawPosY+m_iDrawHeight) > (GetEngine()->GetScreenHeight()-1) )
 	{
 		m_dY = GetEngine()->GetScreenHeight() -1 - m_iStartDrawPosY - m_iDrawHeight;
 		if ( m_dSY > 0 ){
-			m_dSX = m_dSY = 0;
+			m_dSX = m_dSY = 0; // Game over, top player wins
 		}
 	}
 
@@ -205,5 +201,6 @@ void BouncingBall::DoUpdate( int iCurrentTime )
 
 	// Ensure that the object gets redrawn on the display, if something changed
 	RedrawObjects();
+	
 }
 

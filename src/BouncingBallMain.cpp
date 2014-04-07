@@ -14,6 +14,8 @@
 
 #include "Network.h"
 
+#include "PlayerWallAI.h"
+
 /*
 Draw the background of the screen.
 This fills the background with black
@@ -26,7 +28,7 @@ void BouncingBallMain::SetupBackgroundBuffer()
 
 	for ( int iX = 0 ; iX < GetScreenWidth() ; iX++ )
 		for ( int iY = 0 ; iY < this->GetScreenHeight() ; iY++ )
-			switch( rand()%100 )
+			switch( rand()%500 )
 			{
 			case 0: SetBackgroundPixel( iX, iY, 0xFF0000 ); break;
 			case 1: SetBackgroundPixel( iX, iY, 0x00FF00 ); break;
@@ -55,7 +57,12 @@ int BouncingBallMain::InitialiseObjects()
 	return 0;
 }
 
-void BouncingBallMain::AddObjects()
+void BouncingBallMain::StartGame(bool AIFlag){
+	AI = AIFlag;
+	AddObjects(AIFlag);
+}
+
+void BouncingBallMain::AddObjects(bool AIFlag)
 {
 	// Record the fact that we are about to change the array - so it doesn't get used elsewhere without reloading it
 	DrawableObjectsChanged();
@@ -69,16 +76,15 @@ void BouncingBallMain::AddObjects()
 	m_pBall = new BouncingBall( this, 
 		0/*Id*/, 1/*Type*/, 
 		15/*Size*/, 
-		2/*Colour*/,
-		"B"/*Label*/, 
-		-10/*XLabelOffset*/,
-		-15/*YLabelOffset*/ );
+		2/*Colour*/);
 	m_pBall->SetPosition( 100,100 );
 	m_pBall->SetSpeed( 0.1, 0.1);
 
 	m_pWall1 = new PlayerWall(this, true);
-	m_pWall2 = new PlayerWall(this, false);
-
+	if(AIFlag)
+		m_pWall2 = new PlayerWallAI(this, false);
+	else
+		m_pWall2 = new PlayerWall(this, false);
 
 	// Create an array one element larger than the number of objects that you want.
 	m_ppDisplayableObjects = new DisplayableObject*[4]; // i.e. 3 balls + 1 for NULL
@@ -100,7 +106,7 @@ void BouncingBallMain::AddObjects()
 void BouncingBallMain::DrawStrings()
 {
 	CopyBackgroundPixels( 0/*X*/, 0/*Y*/, GetScreenWidth(), 150/*Height*/ );
-	if(menu){
+	if(state == MAIN_MENU){
 		int w,h;
 		TTF_SizeUTF8(font, "Main Menu", &w, &h);
 		DrawScreenString( GetScreenWidth()/2-(w), 10, "Main Menu", 0xffffff, NULL );
@@ -136,7 +142,7 @@ void BouncingBallMain::GameAction()
 // Override to add a node at specified point
 void BouncingBallMain::MouseDown( int iButton, int iX, int iY )
 {
-	if(!menu){
+	if(state == VS_PLAYER || state == VS_COMPUTER){
 		m_pBall->SetSpeed(0.1, 0.1);
 		m_pBall->SetPosition( iX, iY );
 	}
@@ -151,7 +157,7 @@ void BouncingBallMain::KeyDown(int iKeyCode)
 	switch ( iKeyCode )
 	{
 	case SDLK_DOWN:
-		if(menu){
+		if(state == MAIN_MENU){
 			if(menu_item < 2){
 				menu_item++;
 				Redraw(true);
@@ -159,7 +165,7 @@ void BouncingBallMain::KeyDown(int iKeyCode)
 		}
 	break;
 	case SDLK_UP:
-		if(menu){
+		if(state == MAIN_MENU){
 			if(menu_item > 1){
 				menu_item--;
 				Redraw(true);
@@ -167,13 +173,14 @@ void BouncingBallMain::KeyDown(int iKeyCode)
 		}
 	break;
 	case SDLK_RETURN:
-		if(menu){
+		if(state == MAIN_MENU){
 			if(menu_item == VS_COMPUTER){
-				this->AddObjects();
+				this->StartGame(true);
+				state = VS_COMPUTER;
 			}else if(menu_item == VS_PLAYER){
-				this->AddObjects();
+				this->StartGame(false);
+				state = VS_PLAYER;
 			}
-			menu = false;
 			Redraw(true); // We need to clear the strings from the screen
 		}
 	break;

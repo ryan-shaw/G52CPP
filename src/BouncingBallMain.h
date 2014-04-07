@@ -2,8 +2,13 @@
 #define BouncingBallMain_H
 
 #include "BaseEngine.h"
+// Menu items as well as states
 #define VS_COMPUTER 1
 #define VS_PLAYER 2
+// States
+#define MAIN_MENU 3
+#define IN_GAME 4
+#define GAME_OVER 5
 
 // Forward declarations of classes
 // Says that these are classes, but not what the classes look like
@@ -26,6 +31,9 @@ private:
 	TTF_Font* font;
 	bool menu;
 	int menu_item;
+	int state;
+	bool AI;
+
 protected:
 	// Three member variables, to store pointers to the three balls
 	PlayerWall* m_pWall1;
@@ -37,7 +45,8 @@ protected:
 	TileManager m;
 
 public:
-
+	
+	//BouncingBall* GetBall(){return m_pBall;}
 	/**
 	Constructor
 	The : here refers to an initialisation list
@@ -48,18 +57,18 @@ public:
 	, m_pWall1(NULL)
 	, m_pWall2(NULL)
 	, m_pBall(NULL)
-	, menu(true)
-	, menu_item(1)
+	, menu_item(VS_COMPUTER)
+	, state(MAIN_MENU)
 	{}
 
 	// Do any setup of back buffer prior to locking the screen buffer
 	// Do the drawing of the background in here and 
 	// it'll be copied to the screen for you as needed
 	virtual void SetupBackgroundBuffer();
-
+	void StartGame(bool);
 	// Create the bouncing ball(s)
 	int InitialiseObjects();
-	void AddObjects();
+	void AddObjects(bool);
 	// Draw any strings that you need on the screen
 	void DrawStrings();
 

@@ -96,6 +96,7 @@
     <ClInclude Include="MovementPosition.h" />
     <ClInclude Include="Network.h" />
     <ClInclude Include="PlayerWall.h" />
+    <ClInclude Include="PlayerWallAI.h" />
     <ClInclude Include="templates.h" />
     <ClInclude Include="TileManager.h" />
     <ClInclude Include="BouncingBall.h" />
@@ -123,6 +124,7 @@
     <ClCompile Include="MyProjectMain.cpp" />
     <ClCompile Include="Network.cpp" />
     <ClCompile Include="PlayerWall.cpp" />
+    <ClCompile Include="PlayerWallAI.cpp" />
     <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="BouncingBall.cpp" />
     <ClCompile Include="BouncingBallMain.cpp" />

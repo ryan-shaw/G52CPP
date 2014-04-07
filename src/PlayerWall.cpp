@@ -4,8 +4,8 @@
 #include "BouncingBallMain.h"
 
 	// Constructor has to set up all of the position and size members
-	PlayerWall::PlayerWall(BouncingBallMain* pEngine, bool pos) // True pos = bottom, false = top
-		: DisplayableObject( pEngine )
+	PlayerWall::PlayerWall(BouncingBallMain* pEngine, bool pos) // true = bot, false = top
+		: DisplayableObject( pEngine ), pos(pos)
 	{
 		m_iStartDrawPosX = -40;
 		m_iStartDrawPosY = -3;
@@ -50,13 +50,22 @@
 			m_dSX -= 0.0001;
 		if(m_dSX < 0)
 			m_dSX += 0.0001;
-		if ( GetEngine()->IsKeyPressed( SDLK_LEFT ) )
-			m_dSX -= 0.001;
-		if ( GetEngine()->IsKeyPressed( SDLK_RIGHT ) )
-			m_dSX += 0.001;
-		if ( GetEngine()->IsKeyPressed( SDLK_SPACE ) )
-			m_dSX = m_dSY = 0;
-		//printf("%f\n", m_dSX);
+		if(pos){
+			if ( GetEngine()->IsKeyPressed( SDLK_LEFT ) )
+				m_dSX -= 0.001;
+			if ( GetEngine()->IsKeyPressed( SDLK_RIGHT ) )
+				m_dSX += 0.001;
+			if ( GetEngine()->IsKeyPressed( SDLK_SPACE ) )
+				m_dSX = m_dSY = 0;
+		}else{
+			if ( GetEngine()->IsKeyPressed( SDLK_a ) )
+				m_dSX -= 0.001;
+			if ( GetEngine()->IsKeyPressed( SDLK_d ) )
+				m_dSX += 0.001;
+			if ( GetEngine()->IsKeyPressed( SDLK_SPACE ) )
+				m_dSX = m_dSY = 0;
+		}
+	
 		if(m_dSX < -0.7)
 			m_dSX = -0.7;
 		if(m_dSX > 0.7)

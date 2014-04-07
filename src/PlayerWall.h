@@ -21,12 +21,15 @@ public:
 
 	int GetDrawWidth(){return m_iDrawWidth;}
 	int GetDrawHeight(){return m_iDrawHeight;}
-private:
-	BouncingBallMain* m_pEngine;
+	bool GetPlayer(){return pos;}
+protected:
 	double m_dX;
 	double m_dY;
 	double m_dSX;
 	double m_dSY;
+	bool pos;
+private:
+	BouncingBallMain* m_pEngine;
 };
 
 #endif

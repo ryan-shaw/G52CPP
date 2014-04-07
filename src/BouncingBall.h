@@ -13,8 +13,7 @@ class BouncingBall :
 {
 public:
 	BouncingBall(BouncingBallMain* pEngine, int iID, 
-		int iDrawType, int iSize, int iColour,
-		char* szLabel, int iXLabelOffset, int iYLabelOffset );
+		int iDrawType, int iSize, int iColour);
 
 	virtual ~BouncingBall(void);
 	void SetPosition( double dX, double dY );
@@ -26,6 +25,9 @@ public:
 	void DoUpdate( int iCurrentTime );
 	// Size of thing to draw
 	int m_iSize;
+
+	//int iCentreX = m_iCurrentScreenX + m_iStartDrawPosX + m_iDrawWidth/2;
+	//int iCentreY = m_iCurrentScreenY + m_iStartDrawPosY + m_iDrawHeight/2;
 private:
 	/** Pointer to the main engine object */
 	BouncingBallMain* m_pEngine;
@@ -36,17 +38,9 @@ private:
 	// Type of thing to draw
 	int m_iDrawType;
 
-	
-
 	// Colour index to draw with
 	int m_iColour;
 
-	// Label to apply
-	char* m_szLabel;
-
-	// Label offset in pixels
-	int m_iXLabelOffset;
-	int m_iYLabelOffset;
 protected:
 	double m_dX;
 	double m_dY;
