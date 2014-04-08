@@ -1,13 +1,14 @@
 #include "PlayerWall.h"
-#include "BouncingBallMain.h"
-
+//#include "PongMain.h"
+class PongMain;
 class PlayerWallAI : public PlayerWall
 {
 public:
-	PlayerWallAI(BouncingBallMain* pEngine, bool pos);
+	PlayerWallAI(PongMain* pEngine, bool bPos, Ball* pBall);
 	~PlayerWallAI();
 	void DoUpdate(int);
 
 private:
-	BouncingBallMain* m_pEngine;
+	PongMain* m_pEngine;
+	Ball* m_pBall;
 };

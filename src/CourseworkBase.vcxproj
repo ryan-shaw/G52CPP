@@ -94,13 +94,12 @@
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="JPGImage.h" />
     <ClInclude Include="MovementPosition.h" />
-    <ClInclude Include="Network.h" />
     <ClInclude Include="PlayerWall.h" />
     <ClInclude Include="PlayerWallAI.h" />
     <ClInclude Include="templates.h" />
     <ClInclude Include="TileManager.h" />
-    <ClInclude Include="BouncingBall.h" />
-    <ClInclude Include="BouncingBallMain.h" />
+    <ClInclude Include="Ball.h" />
+    <ClInclude Include="PongMain.h" />
     <ClInclude Include="Demo2aMain.h" />
     <ClInclude Include="Demo2Main.h" />
     <ClInclude Include="Demo2Object.h" />
@@ -112,7 +111,6 @@
     <ClInclude Include="Demo4Main.h" />
     <ClInclude Include="Demo4Object.h" />
     <ClInclude Include="Demo4TileManager.h" />
-    <ClInclude Include="MyProjectMain.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainfunction.cpp" />
@@ -120,14 +118,11 @@
     <ClCompile Include="DisplayableObject.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="JPGImage.cpp" />
-    <ClCompile Include="MainMenu.cpp" />
-    <ClCompile Include="MyProjectMain.cpp" />
-    <ClCompile Include="Network.cpp" />
     <ClCompile Include="PlayerWall.cpp" />
     <ClCompile Include="PlayerWallAI.cpp" />
     <ClCompile Include="TileManager.cpp" />
-    <ClCompile Include="BouncingBall.cpp" />
-    <ClCompile Include="BouncingBallMain.cpp" />
+    <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="PongMain.cpp" />
     <ClCompile Include="Demo2aMain.cpp" />
     <ClCompile Include="Demo2Main.cpp" />
     <ClCompile Include="Demo2Object.cpp" />
